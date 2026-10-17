@@ -4,6 +4,8 @@ CFLAGS += -Wall -Wextra
 
 CPPFLAGS +=	-I ./include
 
+CSFML = -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
+
 MAIN	:= 	src/c/main.c	\
 
 SRC_DIR	:=	src/
@@ -23,7 +25,7 @@ NAME	:=	wolf3d
 all: $(NAME)
 
 $(NAME): $(OBJ_MAIN) $(OBJ)
-	$(CC) -o $(NAME) $(OBJ_MAIN) $(OBJ)
+	$(CC) -o $(NAME) $(OBJ_MAIN) $(OBJ) $(CSFML)
 
 obj/%.o: %.c
 	mkdir -p $(dir $@)
